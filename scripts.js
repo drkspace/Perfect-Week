@@ -26,7 +26,6 @@ loseids.forEach(function (l, index){
         loseTeamNames.push(e.options[e.selectedIndex].value);
     }
 });
-console.log(winTeamNames, loseTeamNames);
 
 if(winTeamNames.length > 0)
 {
@@ -51,13 +50,11 @@ if(winTeamNames.length > 0)
 
             if (data[i]["winner"] != l && (data[i]["awayTeam"] == l || data[i]["homeTeam"] == l))
             {
-                console.log(data[i]["winner"])
                 teamlose.push(data[i])
             }
         }
         loseWeeks.push(teamlose)
     });
-    console.log(winningWeeks, loseWeeks);
 
     validWeeks = []
     let foundMatch = false;
@@ -73,7 +70,6 @@ if(winTeamNames.length > 0)
 
         currentWeek = [gameWeek]
 
-        //console.log(winningWeeks.length)
         //Loop through the other games in the list
         for(let j = 1; j<winningWeeks.length; j++)
         {
@@ -130,7 +126,6 @@ if(winTeamNames.length > 0)
             validWeeks.push(currentWeek)
         }
     }
-    console.log(validWeeks);
     document.getElementById("count").innerHTML = "Number of occurrences: "+validWeeks.length;
     buildHtmlTable("#table", validWeeks);
 }
@@ -158,7 +153,6 @@ document.getElementById("table").deleteRow(i-1);
     }
 
   }
-console.log(validWeeks[0].length)
   $("table tr").each(function(i){
 
     if ((i-1)%(validWeeks[0].length*2) < validWeeks[0].length){
