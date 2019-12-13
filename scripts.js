@@ -127,14 +127,22 @@ if(winTeamNames.length > 0)
         }
     }
     document.getElementById("count").innerHTML = "Number of occurrences: "+validWeeks.length;
-    buildHtmlTable("#table", validWeeks);
+    clearTable();
+    if(validWeeks.length != 0)
+    {
+        buildHtmlTable("#table", validWeeks);
+    }
 }
 }
 
-function buildHtmlTable(selector, validWeeks) {
+function clearTable()
+{
   for(var i=document.getElementById("table").rows.length;i>0;i--) {
-document.getElementById("table").deleteRow(i-1);
+        document.getElementById("table").deleteRow(i-1);
+    }
 }
+
+function buildHtmlTable(selector, validWeeks) {
 
   var columns = addAllColumnHeaders(validWeeks, selector);
 
